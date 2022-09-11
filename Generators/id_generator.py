@@ -4,29 +4,7 @@
 This file implements a simple integer ID generator.
 
 DO NOT USE FOR SECURITY RELEVANT CODE.
-
-class IDDuplicationException(Exeception):
-    This exception is thrown, when an ID 
-    that already exists is added to the id queue.
-
-class IDNotFoundException(Exception):
-    This exception is thrown, when an ID
-    that does not exist is removed from the id queue.
-
-class IDGenerator:
-    This class implements the ID generation.
-
-    def get_id() -> int:
-        This method returns a new ID
-
-    def add_id() -> None: (Throws IDDuplicationException)
-        This method adds an ID to the genertor queue.
-
-    def remove_id() -> None: (Throws IDNotFoundException)
-        This method removes an ID from the generator queue.
 """
-
-import re
 
 
 class IDDuplicationException(Exception):
@@ -169,19 +147,52 @@ class IDGenerator:
 
     # Linear growth policy
     def growth_linear(self) -> int:
+        """
+        This method is one of the three growth policy methods.
+        It increases the space of ID's by a constant amount (100).
+
+        @return: (int) New maximal ID.
+        """
+
         return self._max_element + 100
 
     # Double growth policy
     def growth_double(self) -> int:
+        """
+        This method is one of the three growth policy methods.
+        It doubles the space of ID's.
+
+        @return: (int) New maximal id
+        """
+
         return self._max_element * 2
     
     # Squared growth policy
     def growth_square(self) -> int:
+        """
+        This method is one of the three growth policy methods.
+        It squares the space of ID's.
+
+        @return: (int) New maximal id        
+        """
+
         return self._max_element**2
+
+    # Set growth policy
+    def set_growth_policy(self, policy):
+        """
+        This method sets the growth policy.
+        Use linear, double or square.
+
+        @param: (method) policy: One of 'growth_linear', 'growth_double' (default) or 'growth_square'
+        """
+        self._growth_policy = policy
     
     def _grow_to(self, new_max) -> None:
         """
-        This method doubles the range of possible IDs
+        This gorws the space of possible ID's.
+
+        @param: (int) new max: The new maximal ID.
         """
         new_elements = list(range(self._max_element + 1, new_max + 1)) # The list of new elements
         self._id_queue.extend(new_elements) # Extend the ID queue by the new elements
