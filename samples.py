@@ -1,14 +1,25 @@
 import generators
+"""
+@Author: Fabian Kolesch
 
+This file contains examples using the 
+implemented code snippets.
+
+Content:
+    --- Generators ---
+        - IDGenerator
+"""
+
+# --- GENERATORS ---
 
 #--- [ID Generator] ---
-# - Class level id generation - #
+# EXAMPLE 1: Class level ID generation
 # Uncomment the following section to run the class level identification example.
 
 # The classes IDGenSampleC1 and IDGenSampleC2 define an ID generator on class level.
 # On instantiation, a new identifier is generated (__init__). When the instance
 # is deleted (__del__), the identifier is returned to the generator.
-# Thus, each instance of these classes will have a unique identifier.
+# Thus, each instance of these classes will hold a unique identifier.
 # However, some instances of IDGenSampleC1 may have the same identifier as some instance
 # of IDGenSampleC2.
 
@@ -38,7 +49,7 @@ print(f"Instance 2 has class: {i_2.__class__} And ID: {i_2._id}")
 print(f"Instance 3 has class: {i_3.__class__} And ID: {i_3._id}")
 """
 
-# - Global id generation - #
+# - EXAMPLE 2: Global ID generation
 # Uncomment the following section to run the global level identification example.
 
 # The 'GlobalIdentifiedObject' class holds an instance of the IDGenerator as a class variable.
