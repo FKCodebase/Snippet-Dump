@@ -23,7 +23,7 @@ This section contains documentation and examples for the generator snippets
 ```
 
 <p>
-The IDGenerator class implements the genratation of minimal integer 
+The IDGenerator class implements the generation of minimal integer 
 identifiers for not security relevant code.
 </p>
 
